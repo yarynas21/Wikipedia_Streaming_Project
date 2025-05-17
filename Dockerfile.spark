@@ -1,0 +1,8 @@
+FROM bitnami/spark:3
+
+USER root
+
+RUN apt-get update && \
+    apt-get install -y python3-pip gcc libpq-dev python3-dev && \
+    pip install --no-cache-dir psycopg2-binary cassandra-driver && \
+    rm -rf /var/lib/apt/lists/*
